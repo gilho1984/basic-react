@@ -3,8 +3,21 @@ import logo from './logo.svg';
 import { Navbar, NavbarBrand } from "reactstrap";
 import Menu from "./components/MenuComponent";
 import './App.css';
+import { DISHES } from "./shared/dishes"
 
 class App extends Component {
+
+  // define state
+  constructor(props) {
+    super(props);
+
+    // chuck in the state data you imported above to a local var
+    this.state = {
+      dishes: DISHES
+    };
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,7 +26,7 @@ class App extends Component {
             <NavbarBrand href="/">hello Gil</NavbarBrand>
           </div>
         </Navbar>
-        <Menu /> {/* hello here*/}
+        <Menu dishes = {this.state.dishes} /> {/* hello here*/}
       </div>
     );
   }
